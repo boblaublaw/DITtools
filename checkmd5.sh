@@ -11,10 +11,10 @@ find "$1" -name "*.md5" | while read hashfile; do
 	else
         which md5 > /dev/null 2> /dev/null
         if [ $? -eq 0 ]; then
-            testhash=`md5 "$pname" | cut -f2 -d\= | cut -c2-`
+        	testhash=`md5 "$pname" | cut -f2 -d\= | cut -c2-`
         else
-            echo md5sum or md5 required
-        fi
+    		echo md5sum or md5 required
+    	fi
 	fi
 	if [ $hash != $testhash ]; then 
 		echo MISMATCH $pname
